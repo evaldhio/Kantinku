@@ -319,24 +319,35 @@ DELETE /api/orders/:id - Delete order
 
 #### Login Page
 
+<img width="1914" height="933" alt="image" src="https://github.com/user-attachments/assets/b620f043-f0d5-4eff-828d-e98c20cb6aad" />
 
 
 #### Register Page
 
-
+<img width="1899" height="987" alt="image" src="https://github.com/user-attachments/assets/beef49ae-79a1-4ea5-99a1-e4df1c761dbb" />
 
 
 #### Dashboard
 
-
+<img width="1901" height="988" alt="image" src="https://github.com/user-attachments/assets/b373f6c7-c02d-4dc7-854e-dc53091dc051" />
 
 
 #### Menu List
 
+As Customer:
+
+<img width="1902" height="992" alt="image" src="https://github.com/user-attachments/assets/e8483bb5-d2b6-401d-b0a8-be35ffce8c0d" />
 
 
 #### Order Tracking
 
+As Customer:
+
+<img width="1896" height="992" alt="image" src="https://github.com/user-attachments/assets/7c623998-3583-4662-a51b-c648462d208a" />
+
+#### Keranjang
+
+<img width="1904" height="995" alt="image" src="https://github.com/user-attachments/assets/f945d65a-9b95-4823-b6e0-4f2308d052e1" />
 
 
 ## 🚀 Deployment
