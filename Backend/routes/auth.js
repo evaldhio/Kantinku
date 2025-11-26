@@ -6,7 +6,7 @@ const User = require('../models/User');
 
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role: role || 'customer'
+      role: 'customer'  // Default role selalu 'customer', tidak bisa diubah dari frontend
     });
 
     await user.save();

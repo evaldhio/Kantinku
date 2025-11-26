@@ -1,23 +1,59 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function Navbar() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user') || '{}');
   const isLoggedIn = !!localStorage.getItem('token');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      // Close menu when resizing to desktop
+      if (window.innerWidth > 768) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    setMobileMenuOpen(false);
     navigate('/login');
+  };
+
+  const handleNavClick = () => {
+    setMobileMenuOpen(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
     <nav style={styles.navbar}>
       <div style={styles.container}>
-        <Link to="/" style={styles.logo}>
+        <Link to="/" style={styles.logo} onClick={handleNavClick}>
           KantinKu
         </Link>
-        <div style={styles.navLinks}>
+        
+        <button 
+          className="mobile-menu-toggle" 
+          onClick={toggleMobileMenu}
+          style={styles.menuToggle}
+          aria-label="Toggle mobile menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          ☰
+        </button>
+
+        <div className="navLinks" style={styles.navLinks}>
           {isLoggedIn ? (
             <>
               <Link to="/dashboard" style={styles.link}>Dashboard</Link>
@@ -40,6 +76,33 @@ function Navbar() {
             </>
           )}
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="navbar-mobile-menu open">
+            {isLoggedIn ? (
+              <>
+                <Link to="/dashboard" className="navbar-mobile-link" onClick={handleNavClick}>Dashboard</Link>
+                <Link to="/menu" className="navbar-mobile-link" onClick={handleNavClick}>Menu</Link>
+                {user.role === 'admin' && (
+                  <Link to="/orders" className="navbar-mobile-link" onClick={handleNavClick}>All Orders</Link>
+                )}
+                {user.role === 'customer' && (
+                  <Link to="/my-orders" className="navbar-mobile-link" onClick={handleNavClick}>My Orders</Link>
+                )}
+                <div className="navbar-mobile-username">{user.name}</div>
+                <button onClick={handleLogout} className="navbar-mobile-logout">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="navbar-mobile-link" onClick={handleNavClick}>Login</Link>
+                <Link to="/register" className="navbar-mobile-link" onClick={handleNavClick}>Register</Link>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </nav>
   );
@@ -63,12 +126,15 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    position: 'relative',
+    width: '100%',
   },
   logo: {
     color: 'white',
     fontSize: '24px',
     fontWeight: 'bold',
     textDecoration: 'none',
+    whiteSpace: 'nowrap',
   },
   navLinks: {
     display: 'flex',
@@ -97,6 +163,9 @@ const styles = {
     cursor: 'pointer',
     fontSize: '14px',
     transition: 'background 0.3s',
+  },
+  menuToggle: {
+    display: 'none',
   },
 };
 

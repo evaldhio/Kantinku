@@ -9,7 +9,6 @@ function Register() {
     email: '',
     password: '',
     confirmPassword: '',
-    role: 'customer',
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -94,13 +93,6 @@ function Register() {
             onChange={handleChange}
             required
           />
-        </div>
-        <div className="form-group">
-          <label>Role</label>
-          <select name="role" value={formData.role} onChange={handleChange}>
-            <option value="customer">Customer</option>
-            <option value="admin">Admin</option>
-          </select>
         </div>
         <button type="submit" className="btn btn-primary" disabled={loading}>
           {loading ? 'Registering...' : 'Register'}
