@@ -82,6 +82,7 @@ function Navbar() {
           <div className="navbar-mobile-menu open">
             {isLoggedIn ? (
               <>
+                <div className="navbar-mobile-username">{user.name}</div>
                 <Link to="/dashboard" className="navbar-mobile-link" onClick={handleNavClick}>Dashboard</Link>
                 <Link to="/menu" className="navbar-mobile-link" onClick={handleNavClick}>Menu</Link>
                 {user.role === 'admin' && (
@@ -90,7 +91,6 @@ function Navbar() {
                 {user.role === 'customer' && (
                   <Link to="/my-orders" className="navbar-mobile-link" onClick={handleNavClick}>My Orders</Link>
                 )}
-                <div className="navbar-mobile-username">{user.name}</div>
                 <button onClick={handleLogout} className="navbar-mobile-logout">
                   Logout
                 </button>
@@ -110,7 +110,7 @@ function Navbar() {
 
 const styles = {
   navbar: {
-    background: '#007bff',
+    background: '#4A5F75',
     padding: '15px 0',
     boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
     position: 'fixed',

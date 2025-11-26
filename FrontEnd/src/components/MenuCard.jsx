@@ -106,7 +106,7 @@ const styles = {
   price: {
     fontSize: '18px',
     fontWeight: 'bold',
-    color: '#007bff',
+    color: '#4A5F75',
     whiteSpace: 'nowrap',
   },
   unavailable: {
@@ -134,7 +134,7 @@ const styles = {
     justifyContent: 'center',
   },
   btnAdd: {
-    background: '#007bff',
+    background: '#4A5F75',
     color: 'white',
   },
   btnEdit: {

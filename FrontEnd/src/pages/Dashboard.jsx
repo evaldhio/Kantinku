@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FoodSlideshow from '../components/FoodSlideshow';
 import { menu, orders } from '../utils/api';
 
 function Dashboard() {
@@ -11,6 +12,7 @@ function Dashboard() {
     completedOrders: 0,
   });
   const [loading, setLoading] = useState(true);
+  const [foodItems, setFoodItems] = useState([]);
   const user = JSON.parse(localStorage.getItem('user') || '{}');
 
   useEffect(() => {
@@ -38,6 +40,10 @@ function Dashboard() {
         pendingOrders: ordersList.filter(o => o.status === 'pending').length,
         completedOrders: ordersList.filter(o => o.status === 'completed').length,
       });
+
+      // Set food items for slideshow (get up to 10 available items)
+      const availableFood = menuRes.data.filter(item => item.available);
+      setFoodItems(availableFood.slice(0, 10));
     } catch (error) {
       console.error('Error fetching stats:', error);
     } finally {
@@ -69,6 +75,11 @@ function Dashboard() {
           )}
         </div>
       </div>
+
+      {/* Slideshow - Show for customers */}
+      {user.role === 'customer' && (
+        <FoodSlideshow foodItems={foodItems} />
+      )}
 
       <div className="stats-grid">
         <div className="stat-card">

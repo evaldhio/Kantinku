@@ -10,6 +10,8 @@ function MenuList() {
   const [showCart, setShowCart] = useState(false);
   const [loading, setLoading] = useState(true);
   const [orderNotes, setOrderNotes] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 9;
   const user = JSON.parse(localStorage.getItem('user') || '{}');
   const isAdmin = user.role === 'admin';
 
@@ -104,6 +106,12 @@ function MenuList() {
     }
   };
 
+  // Pagination logic
+  const totalPages = Math.ceil(menus.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedMenus = menus.slice(startIndex, endIndex);
+
   if (loading) {
     return (
       <div className="container dashboard">
@@ -113,7 +121,7 @@ function MenuList() {
   }
 
   return (
-    <div className="container dashboard">
+    <div className="container dashboard" style={{marginTop: '100px'}}>
       <div className="page-header">
         <h1>Menu</h1>
         {isAdmin && (
@@ -128,7 +136,7 @@ function MenuList() {
       </div>
 
       <div className="menu-grid">
-        {menus.map((menuItem) => (
+        {paginatedMenus.map((menuItem) => (
           <MenuCard
             key={menuItem._id}
             menu={menuItem}
@@ -139,6 +147,56 @@ function MenuList() {
           />
         ))}
       </div>
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div style={styles.pagination}>
+          <button 
+            onClick={() => setCurrentPage(1)} 
+            disabled={currentPage === 1}
+            style={styles.paginationBtn}
+          >
+            First
+          </button>
+          <button 
+            onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))} 
+            disabled={currentPage === 1}
+            style={styles.paginationBtn}
+          >
+            Previous
+          </button>
+          
+          <div style={styles.pageNumbers}>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                style={{
+                  ...styles.pageButton,
+                  ...(currentPage === page ? styles.activePageButton : {})
+                }}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+
+          <button 
+            onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))} 
+            disabled={currentPage === totalPages}
+            style={styles.paginationBtn}
+          >
+            Next
+          </button>
+          <button 
+            onClick={() => setCurrentPage(totalPages)} 
+            disabled={currentPage === totalPages}
+            style={styles.paginationBtn}
+          >
+            Last
+          </button>
+        </div>
+      )}
 
       {!isAdmin && cart.length > 0 && (
         <button 
@@ -201,5 +259,46 @@ function MenuList() {
     </div>
   );
 }
+
+const styles = {
+  pagination: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '10px',
+    marginTop: '40px',
+    marginBottom: '40px',
+    flexWrap: 'wrap',
+  },
+  paginationBtn: {
+    padding: '10px 15px',
+    border: '1px solid #4A5F75',
+    background: 'white',
+    color: '#4A5F75',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontWeight: '600',
+    transition: 'all 0.3s ease',
+  },
+  pageNumbers: {
+    display: 'flex',
+    gap: '5px',
+  },
+  pageButton: {
+    padding: '8px 12px',
+    border: '1px solid #ddd',
+    background: 'white',
+    color: '#333',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '14px',
+    transition: 'all 0.3s ease',
+  },
+  activePageButton: {
+    background: '#4A5F75',
+    color: 'white',
+    border: '1px solid #4A5F75',
+  },
+};
 
 export default MenuList;
