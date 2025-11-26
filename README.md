@@ -200,24 +200,35 @@ Upload menu images
 ## 🎯 User Flow
 Customer Flow:
 
-Register/Login
-Browse Menu
-Add items to cart
-Checkout with notes (optional)
-View order status di "My Orders"
-Wait for order status: Pending → Preparing → Ready
-Pick up order when ready
+1. Register/Login
+
+2. Browse Menu
+
+3. Add items to cart
+
+4. Checkout with notes (optional)
+
+5. View order status di "My Orders"
+
+6. Wait for order status: Pending → Preparing → Ready
+
+7. Pick up order when ready
 
 Admin Flow:
 
-Login sebagai admin
-Manage menu (Add/Edit/Delete)
-View all orders
+1. Login sebagai admin
+
+2. Manage menu (Add/Edit/Delete)
+
+3. View all orders
+
 Process orders:
 
-Pending: Click "Start Preparing"
-Preparing: Click "Mark as Ready"
-Ready: Click "Complete Order"
+1. Pending: Click "Start Preparing"
+
+2. Preparing: Click "Mark as Ready"
+
+3. Ready: Click "Complete Order"
 
 
 Monitor statistics di dashboard
@@ -257,54 +268,70 @@ javascript{
 }
 ```
 ## 🔐 API Endpoints
-Authentication
+
+#### Authentication
 
 POST /api/auth/register - Register user baru
+
 POST /api/auth/login - Login user
 
-Menu
+#### Menu
 
 GET /api/menu - Get all menus
+
 GET /api/menu/:id - Get menu by ID
+
 POST /api/menu - Create menu (Admin only)
+
 PUT /api/menu/:id - Update menu (Admin only)
+
 DELETE /api/menu/:id - Delete menu (Admin only)
 
-Orders
+#### Orders
 
 GET /api/orders - Get orders (All for admin, own for customer)
+
 GET /api/orders/:id - Get order by ID
+
 POST /api/orders - Create order
+
 PUT /api/orders/:id - Update order
+
 DELETE /api/orders/:id - Delete order
 
 ## 🌟 Screenshots & Demo
-Dashboard
-Show Image
-Menu List
-Show Image
-Order Tracking
-Show Image
+
+#### Dashboard
+
+
+#### Menu List
+
+
+
+#### Order Tracking
+
+
 
 ## 🚀 Deployment
-Backend (Render/Railway)
+
+#### Backend (Render/Railway)
 
 Push code ke GitHub
+
 Connect repository di Render/Railway
+
 Set environment variables
+
 Deploy
 
-Frontend (Vercel/Netlify)
+#### Frontend (Vercel/Netlify)
 
 Build production: npm run build
+
 Deploy folder dist
+
 Update API_URL ke backend production URL
 
-## 🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
-📄 License
-This project is open source and available under the MIT License.
-👥 Author
-Dibuat untuk memenuhi tugas Ujian Akhir Semester - Web Development
 
-KantinKu - Solusi Modern untuk Pemesanan Kantin Digital 🍽️
+
+
