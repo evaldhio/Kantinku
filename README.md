@@ -42,18 +42,25 @@ Untuk Admin Kantin:
 ## 🛠 Tech Stack
 ### Backend
 
-Node.js + Express.js - REST API Server
-MongoDB + Mongoose - Database
-JWT - Authentication
-Bcrypt - Password Hashing
-Multer - File Upload
+1. Node.js + Express.js - REST API Server
+
+2. MongoDB + Mongoose - Database
+
+3. JWT - Authentication
+
+4. Bcrypt - Password Hashing
+
+5. Multer - File Upload
 
 ### Frontend
 
-React + Vite - UI Framework
-React Router - Navigation
-Axios - HTTP Client
-CSS3 - Styling (Responsive)
+1. React + Vite - UI Framework
+
+2. React Router - Navigation
+
+3. Axios - HTTP Client
+
+4. CSS3 - Styling (Responsive)
 
 ## ✨ Fitur Utama
 
