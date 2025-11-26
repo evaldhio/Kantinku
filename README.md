@@ -338,6 +338,10 @@ As Customer:
 
 <img width="1902" height="992" alt="image" src="https://github.com/user-attachments/assets/e8483bb5-d2b6-401d-b0a8-be35ffce8c0d" />
 
+As Admin:
+
+<img width="1901" height="988" alt="image" src="https://github.com/user-attachments/assets/99a178fd-ad03-49fc-baaf-4dbf48052eb1" />
+
 
 #### Order Tracking
 
@@ -345,9 +349,18 @@ As Customer:
 
 <img width="1896" height="992" alt="image" src="https://github.com/user-attachments/assets/7c623998-3583-4662-a51b-c648462d208a" />
 
-#### Keranjang
+As Admin:
+
+<img width="1897" height="990" alt="image" src="https://github.com/user-attachments/assets/2e846eaf-ab93-443e-94e4-723e93e7e8ed" />
+
+
+#### Cart (As Customer)
 
 <img width="1904" height="995" alt="image" src="https://github.com/user-attachments/assets/f945d65a-9b95-4823-b6e0-4f2308d052e1" />
+
+#### Add Menu (As Admin)
+
+<img width="1899" height="995" alt="image" src="https://github.com/user-attachments/assets/978b3267-8beb-43f7-8851-0cd62c4f264e" />
 
 
 ## 🚀 Deployment
@@ -355,8 +368,6 @@ As Customer:
 #### Backend (Render/Railway)
 
 Push code ke GitHub
-
-Connect repository di Render/Railway
 
 Set environment variables
 
