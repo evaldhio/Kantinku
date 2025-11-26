@@ -317,7 +317,18 @@ DELETE /api/orders/:id - Delete order
 
 ## 🌟 Screenshots & Demo
 
+#### Login Page
+
+
+
+#### Register Page
+
+
+
+
 #### Dashboard
+
+
 
 
 #### Menu List
