@@ -5,28 +5,37 @@ Sistem pemesanan makanan kantin online yang memudahkan mahasiswa untuk memesan m
 ## 📋 Problem Statement
 Mahasiswa sering menghabiskan banyak waktu istirahat untuk mengantri di kantin, terutama pada jam-jam sibuk. Proses pemesanan manual yang lambat mengakibatkan:
 
-Waktu istirahat terbuang untuk mengantri
-Proses pemesanan tidak efisien
-Kesalahan dalam pencatatan pesanan
-Tidak ada tracking status pesanan
+1. Waktu istirahat terbuang untuk mengantri
+
+2. Proses pemesanan tidak efisien
+
+3. Kesalahan dalam pencatatan pesanan
+
+4. Tidak ada tracking status pesanan
 
 ## 💡 Solution Overview
 KantinKu adalah aplikasi web yang memungkinkan:
 
 Untuk Mahasiswa/Customer:
 
-Melihat menu makanan dengan foto dan harga
-Memesan makanan secara online
-Tracking status pesanan real-time
-Menghindari antrian panjang
+1. Melihat menu makanan dengan foto dan harga
+
+2. Memesan makanan secara online
+
+3. Tracking status pesanan real-time
+
+4. Menghindari antrian panjang
 
 
 Untuk Admin Kantin:
 
-Mengelola menu makanan (CRUD)
-Melihat dan memproses semua pesanan
-Update status pesanan (Pending → Preparing → Ready → Completed)
-Upload foto menu
+1. Mengelola menu makanan (CRUD)
+
+2. Melihat dan memproses semua pesanan
+
+3. Update status pesanan (Pending → Preparing → Ready → Completed)
+
+4. Upload foto menu
 
 
 
