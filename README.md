@@ -47,40 +47,57 @@ Axios - HTTP Client
 CSS3 - Styling (Responsive)
 
 ## ✨ Fitur Utama
-Authentication
+
+#### Authentication
 
 ✅ Register dengan role (Customer/Admin)
+
 ✅ Login dengan JWT token
+
 ✅ Password di-hash dengan bcrypt
+
 ✅ Token disimpan di localStorage
 
-CRUD Menu (Admin)
+#### CRUD Menu (Admin)
 
 ✅ Tambah menu baru dengan upload foto
+
 ✅ Edit menu (nama, harga, kategori, ketersediaan)
+
 ✅ Delete menu
+
 ✅ View semua menu
 
-Order Management
+#### Order Management
 
 ✅ Customer dapat memesan makanan (cart system)
+
 ✅ Customer dapat melihat history pesanan
+
 ✅ Admin dapat melihat semua pesanan
+
 ✅ Admin dapat update status pesanan
+
 ✅ Filter pesanan berdasarkan status
 
-Upload File
+#### Upload File
 
 ✅ Upload foto menu (JPEG, JPG, PNG, GIF)
+
 ✅ Preview gambar sebelum upload
+
 ✅ Foto disimpan di folder uploads/
 
-UI/UX
+#### UI/UX
 
 ✅ Responsive design (mobile & desktop)
+
 ✅ Dashboard dengan statistik
+
 ✅ Real-time cart dengan badge counter
+
 ✅ Status pesanan dengan color coding
+
 ✅ Clean dan modern interface
 
 ## 📁 Project Structure
